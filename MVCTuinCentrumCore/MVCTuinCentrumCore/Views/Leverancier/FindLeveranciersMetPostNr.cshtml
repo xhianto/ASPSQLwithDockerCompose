@@ -1,0 +1,26 @@
+﻿@model List<Leverancier>
+@{
+    ViewData["Title"] = "Leveranciers met postnr";
+}
+
+<h2>LKeveraniers met postnr @ViewBag.postnr</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Adres</th>
+            <th>Woonplaats</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Naam) </td>
+                <td>@Html.DisplayFor(modelItem => item.Adres) </td>
+                <td>@Html.DisplayFor(modelItem => item.Woonplaats) </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Plant>
+@{
+    ViewData["Title"] = "PrijsLijst";
+}
+
+<h2>PrijsLijst</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Naam)</th>
+            <th>@Html.DisplayNameFor(m => m.VerkoopPrijs) (BTW @ViewBag.Btw)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+         {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </td>
+                <td>
+                    @if (ViewBag.Btw == "inclusief")
+                    {
+                        decimal prijs = item.VerkoopPrijs * 1.21m;@string.Format("{0:C}", prijs)
+                    }
+                    else @Html.DisplayFor(modelItem => item.VerkoopPrijs)
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Leverancier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Alle Leveranciers</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nummer</th>
+            <th>Naam</th>
+            <th>Adres</th>
+            <th>Postcode</th>
+            <th>Woonplaats</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var leverancier in Model)
+        {
+        <tr>
+            <td>@leverancier.LevNr</td>
+            <td>@leverancier.Naam</td>
+            <td>@leverancier.Adres</td>
+            <td>@leverancier.PostNr</td>
+            <td>@leverancier.Woonplaats</td>
+        </tr>
+        }
+    </tbody>
+</table>

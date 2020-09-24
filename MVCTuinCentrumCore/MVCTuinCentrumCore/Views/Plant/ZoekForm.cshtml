@@ -1,0 +1,35 @@
+﻿@model ZoekPlantViewModel
+@{
+    ViewData["Title"] = "Zoekformulier";
+}
+
+<h2>Planten zoeken vanaf een beginprijs</h2>
+<form asp-action="VanafPrijs" method="get">
+    <div>
+        <label asp-for="Vanaf"></label>
+        <input asp-for="Vanaf" />
+        <span asp-validation-for="Vanaf" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Zoeken" class="btn btn-primary mb-3 mt-2" />
+</form>
+@if (Model.Planten != null)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plant in Model.Planten)
+            {
+                <tr>
+                    <td>@plant.Naam</td>
+                    <td>@Html.DisplayFor(p => plant.VerkoopPrijs)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

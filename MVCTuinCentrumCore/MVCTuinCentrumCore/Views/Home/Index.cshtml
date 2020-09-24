@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MVCTuinCentrumCore.Resources
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Welkomsttekst</h1>
+    <p>@DateTime.Now.ToLongDateString()</p>
+    <p class="lead">De tuincentrum-website is een voorbeeld website uit de ASP.NET Core MVC cursus.</p>
+    <p><a href="https://docs.microsoft.com/aspnet/core" class="btn btn-primary btn-lg">Meer over MVC &raquo;</a></p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2><a asp-action="Index" asp-controller="Plant">@SharedLocalizer["Planten"]</a></h2>
+        <p>Overzicht van het plantenassortiment.</p>
+    </div>
+    <div class="col-md-4">
+        <h2><a asp-action="Index" asp-controller="Soort">@SharedLocalizer["Soorten"]</a></h2>
+        <p>Informatie over de diverse soorten planten.</p>
+    </div>
+    <div class="col-md-4">
+        <h2><a asp-action="Index" asp-controller="Leverancier">@SharedLocalizer["Leveranciers"]</a></h2>
+        <p>De leveranciersgegevens.</p>
+    </div>
+</div>
+@*@{ 
+    List<string> pwdList = new List<string> { "Ib#", "Blo", "F09", "Hkf", "Ev!", "K%2", "Awe", "Cve", "Lee", "J61", "Gvc", "Dde" };
+    List<string> ordered = pwdList.OrderBy(num => num).ToList();
+    IEnumerable<string> take = ordered.Take(5);
+    string aggregate = take.Aggregate((i, j) => i + j);
+    string password = pwdList.OrderBy(num => num).ToList().Take(5).Aggregate((i, j) => i + j.Substring(1, 2)).Substring(1);
+}
+Ordered:
+@foreach (string word in ordered)
+{
+    <text>@word, </text> 
+}
+<br />
+Take(5):
+@foreach (string word in take)
+{
+    <text>@word, </text>
+}
+<br />
+@aggregate
+<br />
+@password*@
