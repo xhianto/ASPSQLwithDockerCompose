@@ -22,15 +22,15 @@ services:
       - |
         #Launch MSSQL and send to background
         /opt/mssql/bin/sqlservr &
-        #Wait 30 sec fot it to be available
-        sleep 30
+        #Wait 180 sec fot it to be available
+        sleep 180
         #run script
         /opt/mssql-tools/bin/sqlcmd -U sa -P $${SA_PASSWORD} -l 30 -e -i ./scripts/createMVCTuincentrum.sql
         sleep infinity
     networks:
       - localnetwork
 
-  web:
+  website:
     build: ./MVCTuinCentrumCore
     depends_on: 
       - sql-server-db
