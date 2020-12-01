@@ -2,7 +2,7 @@
 Test for ASP and SQL with docker-compose
 
 ## Installation
-- Clone this repo to your local machine using `git clone https://github.com/xhianto/TestASPSQL`
+- Clone this repo to your local machine using `git clone https://github.com/xhianto/ASPSQLwithDockerCompose
 - Docker and docker-compose is needed
 - For installation of docker-compose visit (https://docs.docker.com/compose/install/)
 - Once repos is cloned go inside the TestASPSQL directory
